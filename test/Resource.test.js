@@ -1,7 +1,6 @@
 'use strict';
 
 var should = require('chai').should();
-var expect = require('chai').expect;
 var Resource = require('../lib/Resource.js');
 
 describe('Resource', function() {
@@ -11,6 +10,22 @@ describe('Resource', function() {
   });
 
   it("should validate the construct");
+
+
+  describe("#attributes", function() {
+    it('should return an object');
+  });
+
+  describe('#attr()', function() {
+    var resource = null;
+    beforeEach(function() {
+      resource = new Resource('type', 'id');
+    });
+    it('should create a new attribute if the attribute does not exist');
+    it("should modify an attribute if it exists");
+    
+  });
+
   describe('#id', function() {
     it('should return the id of the resource', function() {
       var resource = new Resource('asset', 'hello');
@@ -25,6 +40,7 @@ describe('Resource', function() {
       resource.id.should.equal(testid);
     });
   });
+
   describe('#type', function() {
     it('should return the type of the resource', function() {
       var resource = new Resource('asset', 'some id');
