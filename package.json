@@ -1,10 +1,10 @@
 {
-  "name": "jsonapify",
+  "name": "simple-jsonapify",
   "version": "0.0.1",
   "description": "A simple library to help generate and parse json as per the JSON API Spec.",
   "main": "jsonapify.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --recursive --watch"
   },
   "keywords": [
     "json",
