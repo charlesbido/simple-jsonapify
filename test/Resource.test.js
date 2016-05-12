@@ -13,17 +13,40 @@ describe('Resource', function() {
 
 
   describe("#attributes", function() {
-    it('should return an object');
+    it('should return an object', function() {
+      let resource = new Resource('type', 'id');
+      var expectation = new Object();
+      resource.attributes.should.be.an('object');
+      resource.attributes.should.eql(expectation);
+    });
+
+    it('should set an object to attributes', function() {
+
+    });
+
   });
 
   describe('#attr()', function() {
-    var resource = null;
-    beforeEach(function() {
-      resource = new Resource('type', 'id');
+    it('should create a new attribute if the attribute does not exist', function() {
+      let resource = new Resource('student', 'euid');
+      let expectation = {
+        isEnrolled: true
+      }
+      resource.attr('isEnrolled', true);
+      resource.attributes.should.eql(expectation);
     });
-    it('should create a new attribute if the attribute does not exist');
-    it("should modify an attribute if it exists");
-    
+    it("should modify an attribute if it exists", function() {
+      let resource = new Resource('student', 'euid');
+      let expectation = {
+        isEnrolled: false
+      }
+      resource.attr('isEnrolled', true);
+      resource.attributes.should.have.property('isEnrolled');
+      resource.attr('isEnrolled', false);
+      resource.attributes.isEnrolled.should.be.a('boolean');
+      resource.attributes.isEnrolled.should.be.equal(false);
+    });
+
   });
 
   describe('#id', function() {
@@ -56,15 +79,19 @@ describe('Resource', function() {
     });
   });
   describe('#json', function() {
-    it('should return a valid JSON object', function() {
+    it('should return a valid JSON string', function() {
 
       var resource = new Resource('asset', 'some id');
 
       var expectation = JSON.stringify({
-        "type": 'asset',
-        "id": "some id"
+        type: 'asset',
+        id: "some id",
+        attributes: {
+          abc: 123
+        }
       });
 
+      resource.attr('abc', 123);
       resource.json.should.be.an('string');
       resource.json.should.equal(expectation);
 

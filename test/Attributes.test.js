@@ -91,7 +91,19 @@ describe('Attributes', function() {
   });
 
   describe("#json", function() {
-    it('should return a valid JSON string');
-  })
+    it('should return a valid JSON string', function() {
+      let attributes = new Attributes();
+      let expectation = JSON.stringify({
+        test: 123,
+        someotherthing: false
+      });
+      attributes.attr('test', 123);
+      attributes.attr('someotherthing', false);
+      attributes.attr('someotherthing', true);
+      attributes.attr('someotherthing', false);
+      attributes.json.should.be.a('string');
+      attributes.json.should.equal(expectation);
+    });
+  });
 
 });
