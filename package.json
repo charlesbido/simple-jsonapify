@@ -4,7 +4,7 @@
   "description": "A simple library to help generate and parse json as per the JSON API Spec.",
   "main": "jsonapify.js",
   "scripts": {
-    "test": "mocha --recursive --watch"
+    "test": "mocha"
   },
   "keywords": [
     "json",
@@ -14,6 +14,7 @@
   "author": "Charles Bido",
   "license": "ISC",
   "devDependencies": {
-    "chai": "^3.5.0"
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
   }
 }
