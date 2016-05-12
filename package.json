@@ -4,7 +4,7 @@
   "description": "A simple library to help generate and parse json as per the JSON API Spec.",
   "main": "jsonapify.js",
   "scripts": {
-    "test": "mocha"
+    "test": "./node_modules/.bin/mocha --reporter spec"
   },
   "keywords": [
     "json",
