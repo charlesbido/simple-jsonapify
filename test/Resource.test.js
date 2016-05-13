@@ -21,6 +21,16 @@ describe('Resource', function() {
     });
 
     it('should set an object to attributes', function() {
+      let resource = new Resource('type','id');
+
+      let testattrs = {
+        'test': 'hello world',
+        'key': true
+      };
+
+      resource.attributes = testattrs;
+      resource.attributes.should.have.property('test').which.equals('hello world');
+      resource.attributes.should.have.property('key').which.equals(true);
 
     });
 
@@ -78,6 +88,7 @@ describe('Resource', function() {
       resource.type.should.equal(testtype);
     });
   });
+
   describe('#json', function() {
     it('should return a valid JSON string', function() {
 
